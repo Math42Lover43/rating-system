@@ -102,7 +102,7 @@
         var change = [];
         var exp = (res == 1 && p1r > p2r) || (res == 2 && p2r > p1r) || res == 0;
         var f = function(a,b) {
-          return 2 + Math.sqrt(Math.abs(p1r - p2r)) * int(0.5,(int(0.5,b,Infinity)) / (int(0.5,a,Infinity) + sign(a)),1.5);
+          return 2 + Math.sqrt(Math.abs(p1r - p2r)) * int(0.2,(int(0.5,b,Infinity)) / (int(0.5,a,Infinity)),1.5);
         }
         change = [f(p1h,p2h),f(p2h,p1h)];
         console.log(change);
