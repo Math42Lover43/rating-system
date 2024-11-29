@@ -81,10 +81,26 @@
         </td>
       </tr>
       <tr>
-        <td id="change1">
+        <td id="start1" style="text-align: center;" class="rating">
           
         </td>
-        <td id="change2">
+        <td id="start2" style="text-align: center;" class="rating">
+          
+        </td>
+      </tr>
+      <tr>
+        <td id="change1" style="text-align: center;">
+          
+        </td>
+        <td id="change2" style="text-align: center;">
+          
+        </td>
+      </tr>
+      <tr>
+        <td id="new1" style="text-align: center;" class="rating">
+          
+        </td>
+        <td id="new2" style="text-align: center;" class="rating">
           
         </td>
       </tr>
@@ -110,6 +126,14 @@
         console.log(change);
         return change;
       }
+      setInterval(function(){
+        document.getElementById("start1").innerHTML = document.getElementById("p1rating").value;
+        document.getElementById("start2").innerHTML = document.getElementById("p2rating").value;
+        document.getElementById("change1").innerHTML = `<b class="good">+${ratingChange(document.getElementById("p1rating").value,document.getElementById("p1recent").value,document.getElementById("p2rating").value,document.getElementById("p2recent").value,document.getElementById("result").value,document.getElementById("moves").value)[0]}</b>`;
+        document.getElementById("change2").innerHTML = `<b class="bad">-${ratingChange(document.getElementById("p1rating").value,document.getElementById("p1recent").value,document.getElementById("p2rating").value,document.getElementById("p2recent").value,document.getElementById("result").value,document.getElementById("moves").value)[1]}</b>`;
+        document.getElementById("new1").innerHTML = document.getElementById("p1rating").value + ratingChange(document.getElementById("p1rating").value,document.getElementById("p1recent").value,document.getElementById("p2rating").value,document.getElementById("p2recent").value,document.getElementById("result").value,document.getElementById("moves").value)[0];
+        document.getElementById("new2").innerHTML = document.getElementById("p2rating").value - ratingChange(document.getElementById("p1rating").value,document.getElementById("p1recent").value,document.getElementById("p2rating").value,document.getElementById("p2recent").value,document.getElementById("result").value,document.getElementById("moves").value)[1];
+      },0)
     </script>
   </body>
 </html>
