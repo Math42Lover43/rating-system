@@ -91,9 +91,20 @@
     </table>
     <script>
       function ratingChange(p1r,p1h,p2r,p2h,res,moves) {
-        var change;
+        var sign = function(x) {
+          return Math.round(x / Math.abs(x));
+        };
+        var int = function(l,x,u) {
+          if (x > u) { return u; }
+          if (x < l) { return l; }
+          return x;
+        }
+        var change = [];
         var exp = (res == 1 && p1r > p2r) || (res == 2 && p2r > p1r) || res == 0;
-        change = Math.sqrt(Math.abs(p1r - p2r));
+        var f = function(a,b) {
+          return Math.sqrt(Math.abs(p1r - p2r)) * int(0.5,b / a,Infinity);
+        }
+        change = [f(p1h,p2h),f(p2h,p1h)];
         console.log(change);
         return change;
       }
