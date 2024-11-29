@@ -32,7 +32,7 @@
       </tr>
       <tr>
         <td>
-          Player 1 game playing correlation in last month:
+          Player 1 games played in last month:
         </td>
         <td>
           <input type="number" id="p1recent" value="0"/>
@@ -48,7 +48,7 @@
       </tr>
       <tr>
         <td>
-          Player 2 game playing correlation in last month:
+          Player 2 games played in last month:
         </td>
         <td>
           <input type="number" id="p2recent" value="0"/>
@@ -102,7 +102,7 @@
         var change = [];
         var exp = (res == 1 && p1r > p2r) || (res == 2 && p2r > p1r) || res == 0;
         var f = function(a,b) {
-          return Math.sqrt(Math.abs(p1r - p2r)) * int(0.5,b / a,Infinity);
+          return 2 + Math.sqrt(Math.abs(p1r - p2r)) * int(0.5,(b + sign(b)) / (a + sign(a)),1.5);
         }
         change = [f(p1h,p2h),f(p2h,p1h)];
         console.log(change);
