@@ -1,1 +1,102 @@
 <!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      Deepak Rating System
+    </title>
+    <meta charset="utf-8">
+    <style>
+      body, input {
+        font-family: 'Segoe UI';
+      }
+      .good {
+        color: rgb(0,128,0);
+      }
+      .bad {
+        color: rgb(0,128,0);
+      }
+      .rating {
+        font-size: 22pt;
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+      <tr>
+        <td>
+          Player 1 rating:
+        </td>
+        <td>
+          <input type="number" id="p1rating" value="1500"/>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Player 1 game playing correlation in last month:
+        </td>
+        <td>
+          <input type="number" id="p1recent" value="0"/>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Player 2 rating:
+        </td>
+        <td>
+          <input type="number" id="p2rating" value="1500"/>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Player 2 game playing correlation in last month:
+        </td>
+        <td>
+          <input type="number" id="p2recent" value="0"/>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Result:
+        </td>
+        <td>
+          <input type="number" id="result" value="0" min="-1" max="2" title="1/2: That player won, 0: Draw, -1: Double forfiet"/>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Move count:
+        </td>
+        <td>
+          <input type="number" id="moves" value="0" min="0"/>
+        </td>
+      </tr>
+    </table>
+    <table>
+      <tr>
+        <td style="width: 50%; text-align: center;">
+          Player 1
+        </td>
+        <td style="width: 50%; text-align: center;">
+          Player 2
+        </td>
+      </tr>
+      <tr>
+        <td id="change1">
+          
+        </td>
+        <td id="change2">
+          
+        </td>
+      </tr>
+    </table>
+    <script>
+      function ratingChange(p1r,p1h,p2r,p2h,res,moves) {
+        var change;
+        var exp = (res == 1 && p1r > p2r) || (res == 2 && p2r > p1r) || res == 0;
+        change = Math.sqrt(Math.abs(p1r - p2r));
+        console.log(change);
+        return change;
+      }
+    </script>
+  </body>
+</html>
