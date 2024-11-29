@@ -124,7 +124,6 @@
           return t;
         }
         change = [Math.round(100 * f(p1h,p2h,exp)) / 100,Math.round(100 * f(p2h,p1h,exp)) / 100];
-        console.log(change);
         return change;
       }
       setInterval(function(){
@@ -133,7 +132,7 @@
         document.getElementById("change1").innerHTML = `<b class="good">+${ratingChange(document.getElementById("p1rating").value,document.getElementById("p1recent").value,document.getElementById("p2rating").value,document.getElementById("p2recent").value,document.getElementById("result").value,document.getElementById("moves").value)[0]}</b>`;
         document.getElementById("change2").innerHTML = `<b class="bad">-${ratingChange(document.getElementById("p1rating").value,document.getElementById("p1recent").value,document.getElementById("p2rating").value,document.getElementById("p2recent").value,document.getElementById("result").value,document.getElementById("moves").value)[1]}</b>`;
         document.getElementById("new1").innerHTML = "<b>" + Number(document.getElementById("p1rating").value) + Number(ratingChange(document.getElementById("p1rating").value,document.getElementById("p1recent").value,document.getElementById("p2rating").value,document.getElementById("p2recent").value,document.getElementById("result").value,document.getElementById("moves").value)[0]) + "</b>";
-        document.getElementById("new2").innerHTML = "<b>" + Number(document.getElementById("p2rating").value) - Number(ratingChange(document.getElementById("p1rating").value,document.getElementById("p1recent").value,document.getElementById("p2rating").value,document.getElementById("p2recent").value,document.getElementById("result").value,document.getElementById("moves").value)[1]) + "</b>";
+        document.getElementById("new2").innerHTML = "<b>" + (Number(document.getElementById("p2rating").value) - Number(ratingChange(document.getElementById("p1rating").value,document.getElementById("p1recent").value,document.getElementById("p2rating").value,document.getElementById("p2recent").value,document.getElementById("result").value,document.getElementById("moves").value)[1])) + "</b>";
       },0)
     </script>
   </body>
