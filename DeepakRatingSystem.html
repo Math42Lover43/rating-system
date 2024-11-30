@@ -118,12 +118,12 @@
         }
         var change = [];
         var exp = (res == 1 && p1r > p2r) || (res == 2 && p2r > p1r) || res == 0;
-        var f = function(a,b,x) {
-          var t = (2 + Math.sqrt(Math.abs(p1r - p2r)) * int(0.1,(int(0.1,b,Infinity)) / (int(0.1,a,Infinity)),15)) * 0.99 ** moves;
+        var f = function(a,b,x,h) {
+          var t = (2 + Math.sqrt(Math.abs(p1r - p2r) ** (1.5 - int(0,h,30) / 60)) * int(0.1,(int(0.1,b,Infinity)) / (int(0.1,a,Infinity)),15)) * 0.99 ** moves;
           if(x == 1) { t = Math.sqrt(t); }
           return t;
         }
-        change = [Math.round(100 * f(p1h,p2h,exp)) / 100,Math.round(100 * f(p2h,p1h,exp)) / 100];
+        change = [Math.round(100 * f(p1h,p2h,exp,p1h)) / 100,Math.round(100 * f(p2h,p1h,exp,p2h)) / 100];
         return change;
       }
       setInterval(function(){
